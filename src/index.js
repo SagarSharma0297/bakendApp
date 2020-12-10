@@ -2,7 +2,11 @@ var express = require('express');
 var app = express();
 var mysql = require('mysql');
 var cors = require('cors');
-var port  = process.env.PORT || 4201
+var port  = process.env.PORT || 4201;
+var path = require('path')
+
+const staticPath = path.join(__dirname, "../public")
+app.use(express.static(staticPath))
 var connection = mysql.createConnection({
     host: "upptis.c8xet7vkqyyb.ap-south-1.rds.amazonaws.com",
     user: "vinesh",
